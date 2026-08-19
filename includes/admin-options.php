@@ -471,7 +471,7 @@ if (!function_exists('zibll_takebox_create_options')) {
                     'id'      => 'update_repo',
                     'type'    => 'text',
                     'title'   => 'GitHub 仓库（owner/repo）',
-                    'desc'    => '填写后从 GitHub Releases 检测新版本并支持后台一键更新。留空关闭在线更新。Release 需附带结构正确的 ZIP（解压后顶层为 zibll-takebox/）。',
+                    'desc'    => '留空自动使用默认仓库 yuananchen44-prog/zibll-takebox；填 0/off 可禁用在线更新；也可填你自己的仓库覆盖。Release 需附带结构正确的 ZIP（解压后顶层为 zibll-takebox/）。',
                     'placeholder' => 'yuananchen44-prog/zibll-takebox',
                 ),
                 array(

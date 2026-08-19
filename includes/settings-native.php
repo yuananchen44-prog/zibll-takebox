@@ -100,7 +100,7 @@ if (!function_exists('zibll_takebox_native_field_defs')) {
             )),
             'watermark_opacity' => array('title' => '不透明度（%）', 'type' => 'number', 'min' => 0, 'desc' => '0 完全透明 ~ 100 完全不透明，默认 60。'),
             'watermark_min_size'=> array('title' => '最小宽度（px）', 'type' => 'number', 'min' => 0, 'desc' => '图片宽度小于该值不打水印，0 = 全部打。'),
-            'update_repo'       => array('title' => 'GitHub 仓库（owner/repo）', 'type' => 'text', 'placeholder' => 'yuananchen44-prog/zibll-takebox', 'desc' => '填写后从 GitHub Releases 检测新版本并支持后台一键更新。留空关闭在线更新。Release 需附带结构正确的 ZIP。'),
+            'update_repo'       => array('title' => 'GitHub 仓库（owner/repo）', 'type' => 'text', 'placeholder' => 'yuananchen44-prog/zibll-takebox', 'desc' => '留空自动使用默认仓库 yuananchen44-prog/zibll-takebox；填 0/off 可禁用在线更新；也可填你自己的仓库覆盖。Release 需附带结构正确的 ZIP。'),
         );
     }
 }
