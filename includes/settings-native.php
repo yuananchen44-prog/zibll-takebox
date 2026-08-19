@@ -42,7 +42,6 @@ if (!function_exists('zibll_takebox_native_page_fields')) {
                 'watermark_enabled', 'watermark_type', 'watermark_text', 'watermark_font',
                 'watermark_image', 'watermark_position', 'watermark_opacity', 'watermark_min_size',
             ),
-            'update'   => array('update_repo'),
             'sync'     => array('sync_cron', 'sync_freq', 'sync_email', 'cleanup_orphans'),
             'meta'     => array('meta_enabled'),
         );
@@ -100,7 +99,6 @@ if (!function_exists('zibll_takebox_native_field_defs')) {
             )),
             'watermark_opacity' => array('title' => '不透明度（%）', 'type' => 'number', 'min' => 0, 'desc' => '0 完全透明 ~ 100 完全不透明，默认 60。'),
             'watermark_min_size'=> array('title' => '最小宽度（px）', 'type' => 'number', 'min' => 0, 'desc' => '图片宽度小于该值不打水印，0 = 全部打。'),
-            'update_repo'       => array('title' => 'GitHub 仓库（owner/repo）', 'type' => 'text', 'placeholder' => 'yuananchen44-prog/zibll-takebox', 'desc' => '留空自动使用默认仓库 yuananchen44-prog/zibll-takebox；填 0/off 可禁用在线更新；也可填你自己的仓库覆盖。Release 需附带结构正确的 ZIP。'),
         );
     }
 }
@@ -292,7 +290,6 @@ if (!function_exists('zibll_takebox_native_page_router')) {
             'image'    => '图片处理',
             'sync'     => '同步',
             'meta'     => '信息面板',
-            'update'   => '更新',
             'about'    => '关于',
         );
         $tab = isset($_GET['tab']) ? sanitize_key($_GET['tab']) : 'basic';
@@ -360,9 +357,6 @@ function zibll_takebox_render_tab($tab)
             echo '<p class="zibll-tb-tip">' . esc_html($def['desc']) . '</p>';
         }
         echo '</td></tr>';
-    }
-    if ('update' === $tab) {
-        echo '<tr><td colspan="2"><p class="zibll-tb-tip">当前版本：<b>v' . esc_html(ZIBLL_TAKEBOX_VERSION) . '</b>。填好仓库后，到「仪表盘 → 更新」点击「立即检查更新」即可检测新版本。</p></td></tr>';
     }
     if ('sync' === $tab && function_exists('zibll_takebox_sync_ui')) {
         echo zibll_takebox_sync_ui();

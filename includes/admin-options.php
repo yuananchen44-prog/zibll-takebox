@@ -461,28 +461,6 @@ if (!function_exists('zibll_takebox_create_options')) {
             ),
         ));
 
-        // ===== 更新 =====
-        CSF::createSection($prefix, array(
-            'id'     => 'update',
-            'title'  => '更新',
-            'icon'   => 'fa fa-refresh',
-            'fields' => array(
-                array(
-                    'id'      => 'update_repo',
-                    'type'    => 'text',
-                    'title'   => 'GitHub 仓库（owner/repo）',
-                    'desc'    => '留空自动使用默认仓库 yuananchen44-prog/zibll-takebox；填 0/off 可禁用在线更新；也可填你自己的仓库覆盖。Release 需附带结构正确的 ZIP（解压后顶层为 zibll-takebox/）。',
-                    'placeholder' => 'yuananchen44-prog/zibll-takebox',
-                ),
-                array(
-                    'id'     => 'update_info',
-                    'type'   => 'content',
-                    'title'  => '当前版本',
-                    'content' => '当前版本：<b>v' . ZIBLL_TAKEBOX_VERSION . '</b>。填好仓库后，到「仪表盘 → 更新」点击「立即检查更新」即可检测新版本。',
-                ),
-            ),
-        ));
-
         // ===== 关于 =====
         CSF::createSection($prefix, array(
             'id'     => 'about',

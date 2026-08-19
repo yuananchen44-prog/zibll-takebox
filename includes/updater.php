@@ -13,7 +13,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-// 默认在线更新仓库（写死默认值，开箱即用；设置页 update_repo 可覆盖，填 0/off 可禁用）
+// 在线更新仓库（写死，不再读设置项；换仓库直接改这里）
 if (!defined('ZIBLL_TAKEBOX_UPDATE_REPO')) {
     define('ZIBLL_TAKEBOX_UPDATE_REPO', 'yuananchen44-prog/zibll-takebox');
 }
@@ -31,15 +31,8 @@ if (!class_exists('Zibll_Takebox_Updater')) {
             $this->slug     = 'zibll-takebox';
             $this->basename = $this->slug . '/' . $this->slug . '.php';
 
-            // 仓库三态：0/off/disabled/none 显式禁用；非空用自定义；留空用默认仓库
-            $cfg = trim((string) zibll_takebox_get_option('update_repo', ''), '/');
-            if (in_array(strtolower($cfg), array('0', 'off', 'false', 'disabled', 'none'), true)) {
-                $this->repo = '';
-            } elseif ('' !== $cfg) {
-                $this->repo = $cfg;
-            } else {
-                $this->repo = defined('ZIBLL_TAKEBOX_UPDATE_REPO') ? ZIBLL_TAKEBOX_UPDATE_REPO : '';
-            }
+            // 更新源写死（阿晨自用，仓库固定），不再读设置项，避免误填导致检测失败
+            $this->repo      = defined('ZIBLL_TAKEBOX_UPDATE_REPO') ? ZIBLL_TAKEBOX_UPDATE_REPO : '';
             $this->cache_key = 'zibll_takebox_release_' . md5($this->repo);
 
             if ('' === $this->repo) {
