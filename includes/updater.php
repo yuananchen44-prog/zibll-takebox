@@ -68,7 +68,7 @@ if (!class_exists('Zibll_Takebox_Updater')) {
                 'changelog' => isset($data['body']) ? $data['body'] : '',
                 'published' => isset($data['published_at']) ? $data['published_at'] : '',
             );
-            set_transient($this->cache_key, $release, 12 * HOUR_IN_SECONDS);
+            set_transient($this->cache_key, $release, HOUR_IN_SECONDS); // 1 小时缓存，兼顾 GitHub 限流与新版本及时性
             return $release;
         }
 

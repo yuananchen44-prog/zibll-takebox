@@ -76,7 +76,7 @@ if (!function_exists('zibll_takebox_native_field_defs')) {
             'public_domain' => array('title' => '自定义公开域名（可选）', 'type' => 'text', 'placeholder' => 'https://cdn.example.com', 'desc' => '填后，所有对外暴露的图片/文件直链都走你的域名（CDN / 自有域名），而非存储厂商默认端点。需自行在 DNS/CDN 处把该域名回源到存储桶。留空则用默认端点地址。'),
             'custom_path'   => array('title' => '自定义路径', 'type' => 'text', 'placeholder' => 'wp-content/uploads/', 'desc' => '对象存储中的存放前缀，默认 wp-content/uploads（与本地 wp-content/uploads 原始结构一致）。可直接留空按默认；也可改成你的自定义前缀。'),
             'year_month'    => array('title' => '按年/月分目录', 'type' => 'switcher', 'desc' => '开启后路径变为 存储桶/路径/年/月/文件。'),
-            'rename_uploads' => array('title' => '上传自动更名', 'type' => 'switcher', 'desc' => '新上传到对象存储的文件名整体替换为标准化标识（如 1162-image.jpg、1162-image-150x150.jpg、1162-video.mp4），彻底去掉原始文件名的中文/表情/长串/空格。仅影响新上传，已有文件与反向导入不受影响。'),
+            'rename_uploads' => array('title' => '上传自动更名', 'type' => 'switcher', 'desc' => '文章插入/头像/封面/商品图等渠道的新上传文件名标准化（如 1162-image.jpg、1162-image-150x150.jpg、1162-video.mp4），去掉中文/表情/长串/空格；后台媒体库手动上传保留原名。仅影响新上传，已有文件与反向导入不受影响。'),
             'sync_cron'     => array('title' => '定时反向同步', 'type' => 'switcher', 'desc' => '开启后按频率扫描对象存储，把缺失文件反向导入媒体库（兜底）。'),
             'sync_freq'     => array('title' => '扫描频率', 'type' => 'select', 'options' => array('hourly' => '每小时', 'twicedaily' => '每 12 小时', 'daily' => '每天')),
             'sync_email'    => array('title' => '完成通知邮箱（可选）', 'type' => 'text', 'placeholder' => 'admin@example.com', 'desc' => '同步完成后发完成通知邮件；留空仅后台提示。'),

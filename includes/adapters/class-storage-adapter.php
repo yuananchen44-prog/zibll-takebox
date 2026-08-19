@@ -42,12 +42,19 @@ if (!class_exists('Zibll_Takebox_Storage_Adapter')) {
                 $parts[] = gmdate('m');
             }
             $basename = ltrim($basename, '/');
-            // 上传自动更名：开启后对象 key 的文件名整体替换为“标准化标识”，
-            // 即「附件ID-类型标识[-尺寸后缀].扩展名」，例如 1162-image.jpg、1162-image-150x150.jpg、
-            // 1162-video.mp4、1162-file.pdf。彻底去掉原始文件名里的中文/表情/长串/空格，命名标准化。
+            // 上传自动更名：仅「非媒体库直接上传」的渠道改名。
+            // 后台媒体库（upload.php / media-new.php）手动上传保留原始文件名；
+            // 文章插入 / 头像 / 封面 / 商品图等其他渠道统一改名，去掉中文/表情/长串/空格。
             // 仅 forward 上传（有附件 ID）生效；反向导入 / 连接测试传 0，不受影响。
             if ($attachment_id > 0 && zibll_takebox_get_option('rename_uploads', 0)) {
-                $basename = zibll_takebox_clean_rename($basename, (int) $attachment_id);
+                $referer = wp_get_referer();
+                $from_media_library = (false !== $referer) && (
+                    false !== strpos($referer, 'upload.php') ||
+                    false !== strpos($referer, 'media-new.php')
+                );
+                if (!$from_media_library) {
+                    $basename = zibll_takebox_clean_rename($basename, (int) $attachment_id);
+                }
             }
             $parts[] = $basename;
             return implode('/', $parts);

@@ -301,7 +301,7 @@ if (!function_exists('zibll_takebox_create_options')) {
                     'id'      => 'rename_uploads',
                     'type'    => 'switcher',
                     'title'   => '上传自动更名',
-                    'desc'    => '新上传文件名标准化（去中文/空格），如 1162-image.jpg。仅影响新上传。',
+                    'desc'    => '文章插入/头像/封面/商品图等渠道的新上传文件名标准化（去中文/空格），如 1162-image.jpg；后台媒体库手动上传保留原名。仅影响新上传。',
                     'default' => false,
                 ),
             ),
