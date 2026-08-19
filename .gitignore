@@ -1,0 +1,17 @@
+# 依赖/缓存
+node_modules/
+vendor/
+__pycache__/
+*.pyc
+
+# 系统/编辑器
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# 打包产物
+*.zip
+
+# 工作区数据
+.workbuddy/
