@@ -3,7 +3,7 @@
  * Plugin Name: 接管匣 TakeBox
  * Plugin URI: https://navigation.hoarfall.com/
  * Description: 完整接管 WordPress 媒体库，把任何上传到媒体库的文件自动同步到对象存储（S3 兼容 / Cloudflare R2 / 阿里云 OSS），并补齐删除同步、双向同步、信息增强与 R2 专用体验。
- * Version: 0.2.3
+ * Version: 1.2.3
  * Author: 阿晨
  * Author URI: https://navigation.hoarfall.com/about.html
  * Requires at least: 5.8
@@ -24,7 +24,7 @@ if (!defined('ZIBLL_TAKEBOX_URL')) {
     define('ZIBLL_TAKEBOX_URL', plugin_dir_url(__FILE__));
 }
 if (!defined('ZIBLL_TAKEBOX_VERSION')) {
-    define('ZIBLL_TAKEBOX_VERSION', '0.2.3');
+    define('ZIBLL_TAKEBOX_VERSION', '1.2.3');
 }
 // 独立 option key（不写入 zibll_options）
 if (!defined('ZIBLL_TAKEBOX_OPTION')) {
