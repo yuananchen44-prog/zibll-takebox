@@ -27,7 +27,7 @@
 | 后台菜单 | 全部挂「Hoarfall 工具」；单页 + 顶部 tab 切换；不做三级侧边菜单 |
 | 总开关 | 必带 `zibll_takebox_master_switch`，**默认关闭**（媒体接管风险高） |
 
-## 3. 设置页规范（跨项目统一，已写入长期记忆）
+## 3. 设置页规范
 - 子比主题：`CSF::createOptions`，`menu_type=>'menu'` + 在 `admin_menu` 优先级 999 用 reparent 移入 `hoarfall-tools`。
 - 非子比主题：原生 WP 设置页（复用 `settings-native.php` boilerplate），同样挂 `hoarfall-tools`；**单页 + 顶部 tab 切换**；共享 option key 时 sanitize 只更新当前 tab 白名单、继承其余。
 - 列表页「设置」跳转：`plugin_action_links_{plugin_basename}`。
